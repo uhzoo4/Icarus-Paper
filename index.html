@@ -1,0 +1,78 @@
+<div id="preloader">
+
+    <div class="pre-counter">
+        <span id="pre-count">0</span>
+    </div>
+
+    <div class="pre-progress">
+        <div class="pre-progress-bar"></div>
+    </div>
+
+    <div class="pre-title">
+        <span class="pre-char" data-char="I">I</span>
+        <span class="pre-char" data-char="C">C</span>
+        <span class="pre-char" data-char="A">A</span>
+        <span class="pre-char" data-char="R">R</span>
+        <span class="pre-char" data-char="U">U</span>
+        <span class="pre-char" data-char="S">S</span>
+    </div>
+
+    <div class="pre-subtitle">
+        <span class="pre-sub-line">built to fall &nbsp;·&nbsp; born to fly</span>
+    </div>
+
+</div>
+
+<section id="hero">
+
+    <!-- Layer 1: Ghost background — Image 1 filtered -->
+    <div class="hero-ghost"></div>
+
+    <!-- Layer 2: Three.js canvas — Icarus figure -->
+    <canvas id="icarus-canvas"></canvas>
+
+    <!-- Layer 3: SVG rough-text filter definition -->
+    <svg class="svg-filters" aria-hidden="true">
+        <defs>
+            <filter id="rough-text" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" seed="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
+                    id="displacement-scale" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Layer 4: Hero text -->
+    <div class="hero-content">
+
+        <div class="hero-meta">
+            <span>Greek Mythology · Rewritten · 2026</span>
+        </div>
+
+        <div class="hero-title-wrap">
+            <div class="hero-title-left">
+                <span class="hero-char">I</span>
+                <span class="hero-char">C</span>
+                <span class="hero-char">A</span>
+            </div>
+            <div class="hero-title-right">
+                <span class="hero-char">R</span>
+                <span class="hero-char">U</span>
+                <span class="hero-char">S</span>
+            </div>
+        </div>
+
+        <div class="hero-tagline">
+            <span class="tagline-left">built to <em>fall</em></span>
+            <span class="tagline-divider">·</span>
+            <span class="tagline-right">born to <em>fly</em></span>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>scroll to begin</span>
+            <div class="scroll-line"></div>
+        </div>
+
+    </div>
+
+</section>

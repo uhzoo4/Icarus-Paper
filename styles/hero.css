@@ -1,0 +1,160 @@
+:root {
+    --color-void: #07070F;
+    --color-warm-white: #EDE8DC;
+    --color-crimson: #CC1818;
+    --color-wax: #C8861A;
+    --color-smoke: #6B5840;
+}
+
+#hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-void);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-ghost {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/icarus-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.055;
+    filter: grayscale(100%) contrast(180%) brightness(0.4);
+    mix-blend-mode: luminosity;
+    pointer-events: none;
+}
+
+#icarus-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.svg-filters {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+}
+
+.hero-meta {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #3A2A30;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.hero-title-wrap {
+    display: flex;
+    gap: 0;
+    filter: url(#rough-text);
+    will-change: transform, filter;
+}
+
+.hero-title-left,
+.hero-title-right {
+    display: flex;
+    gap: 0.02em;
+}
+
+.hero-char {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(100px, 20vw, 220px);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    color: var(--color-warm-white);
+    display: inline-block;
+    will-change: transform, color;
+}
+
+.hero-tagline {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    opacity: 0;
+}
+
+.tagline-left,
+.tagline-right {
+    font-family: Georgia, serif;
+    font-size: clamp(14px, 2vw, 20px);
+    letter-spacing: 0.08em;
+    color: var(--color-smoke);
+}
+
+.tagline-left em,
+.tagline-right em {
+    font-style: italic;
+    color: #A84040;
+    letter-spacing: 0.02em;
+}
+
+.tagline-divider {
+    color: #2A1A20;
+    font-size: 1.2em;
+}
+
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+}
+
+.hero-scroll-hint span {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: #2A1A20;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, #4A3040, transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scaleY(1.2);
+        opacity: 1;
+    }
+}

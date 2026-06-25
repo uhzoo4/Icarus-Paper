@@ -1,0 +1,75 @@
+#preloader {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #07070F;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pre-counter {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #3A3050;
+    text-transform: uppercase;
+}
+
+.pre-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #0F0E1A;
+}
+
+.pre-progress-bar {
+    height: 100%;
+    width: 100%;
+    background: #CC1818;
+    transform-origin: left center;
+}
+
+.pre-title {
+    display: flex;
+    gap: 0.05em;
+    overflow: hidden;
+}
+
+.pre-char {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(80px, 18vw, 200px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #EDE8DC;
+    display: inline-block;
+    line-height: 1;
+    will-change: transform, opacity;
+}
+
+.pre-subtitle {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.5vw, 18px);
+    color: #4A3840;
+    letter-spacing: 0.12em;
+    overflow: hidden;
+}
+
+.pre-sub-line {
+    display: block;
+    transform: translateY(100%);
+}
