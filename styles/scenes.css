@@ -786,3 +786,274 @@
   color: #1E1218;
   text-transform: uppercase;
 }
+
+/* ══ SCENE 8: THE CLOSE ══ */
+
+#scene-close {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: #0C1018;
+}
+
+/* ── Atmospheric background layers ── */
+
+.close-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.close-atm-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    #1E2A38 0%,
+    #12181F 40%,
+    #0C1018 75%,
+    #080C12 100%
+  );
+}
+
+.close-atm-texture-1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(30, 50, 80, 0.4) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+}
+
+.close-atm-texture-2 {
+  position: absolute;
+  top: 20%;
+  right: -15%;
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 35, 60, 0.35) 0%,
+    transparent 70%
+  );
+  filter: blur(80px);
+}
+
+.close-atm-texture-3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to top,
+    rgba(8, 10, 16, 0.9) 0%,
+    transparent 100%
+  );
+}
+
+/* ── Figure layer ── */
+
+.close-figure-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url('/assets/images/icarus-close.jpg');
+  background-size: cover;
+  background-position: center top;
+  filter: 
+    grayscale(100%) 
+    contrast(140%) 
+    brightness(0.18)
+    saturate(0);
+  mix-blend-mode: luminosity;
+  opacity: 0.7;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* ── Fragment dots — scattered feathers upper-right ── */
+
+.close-fragments {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: 120px;
+  height: 160px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fragment {
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  background: rgba(140, 160, 190, 0.15);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.fragment-1 { width: 4px;  height: 10px; top: 10%;  left: 60%; transform: rotate(25deg);  }
+.fragment-2 { width: 3px;  height: 8px;  top: 25%;  left: 80%; transform: rotate(-15deg); }
+.fragment-3 { width: 5px;  height: 12px; top: 40%;  left: 40%; transform: rotate(40deg);  }
+.fragment-4 { width: 3px;  height: 7px;  top: 55%;  left: 90%; transform: rotate(-30deg); }
+.fragment-5 { width: 4px;  height: 9px;  top: 70%;  left: 65%; transform: rotate(20deg);  }
+
+/* ── Close marker — top left script ── */
+
+.close-marker {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  z-index: 4;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.close-marker-text {
+  display: block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(32px, 5vw, 52px);
+  color: #EDE8DC;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.close-marker-sub {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #2A3A48;
+  text-transform: uppercase;
+}
+
+/* ── Poem block ── */
+
+.close-poem {
+  position: relative;
+  z-index: 4;
+  padding: 0 0 5vh 6vw;
+  max-width: min(520px, 80vw);
+  opacity: 0;
+  will-change: opacity;
+}
+
+.poem-stanza {
+  margin-bottom: 1.8rem;
+}
+
+.poem-stanza:last-child {
+  margin-bottom: 0;
+}
+
+.poem-line {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(15px, 2vw, 20px);
+  color: #C8D0D8;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  will-change: transform, opacity;
+}
+
+.poem-opening {
+  font-size: clamp(18px, 2.6vw, 26px);
+  color: #EDE8DC;
+  font-style: italic;
+  letter-spacing: -0.005em;
+}
+
+.poem-emphasis {
+  font-style: italic;
+  color: #EDE8DC;
+}
+
+.poem-body {
+  color: #8A9AAA;
+  font-size: clamp(14px, 1.8vw, 18px);
+}
+
+.poem-final {
+  font-style: italic;
+  color: #EDE8DC;
+  font-size: clamp(16px, 2.2vw, 22px);
+}
+
+/* ── Footer ── */
+
+.close-footer {
+  position: relative;
+  z-index: 4;
+  padding: 0 6vw 2.5rem;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(30, 42, 56, 0.8);
+  margin-bottom: 1.2rem;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-title {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #2A3A48;
+  letter-spacing: 0.05em;
+}
+
+.footer-divider {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: #1A2530;
+}
+
+.footer-credit {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #2A3A48;
+  text-transform: uppercase;
+}
+
+.footer-year {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #1A2530;
+}
+
+.footer-note {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #1A2530;
+  font-style: italic;
+  text-transform: lowercase;
+}

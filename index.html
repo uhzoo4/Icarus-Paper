@@ -1,417 +1,400 @@
-<div id="preloader">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="The Icarus Papers — A myth rewritten. Built in one conversation." />
+  <title>The Icarus Papers</title>
 
+  <link rel="stylesheet" href="/styles/preloader.css" />
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/scenes.css" />
+</head>
+<body>
+
+  <!-- ── SCENE 0: Preloader ── -->
+  <div id="preloader">
     <div class="pre-counter">
-        <span id="pre-count">0</span>
+      <span id="pre-count">0</span>
     </div>
-
     <div class="pre-progress">
-        <div class="pre-progress-bar"></div>
+      <div class="pre-progress-bar"></div>
     </div>
-
     <div class="pre-title">
-        <span class="pre-char" data-char="I">I</span>
-        <span class="pre-char" data-char="C">C</span>
-        <span class="pre-char" data-char="A">A</span>
-        <span class="pre-char" data-char="R">R</span>
-        <span class="pre-char" data-char="U">U</span>
-        <span class="pre-char" data-char="S">S</span>
+      <span class="pre-char" data-char="I">I</span>
+      <span class="pre-char" data-char="C">C</span>
+      <span class="pre-char" data-char="A">A</span>
+      <span class="pre-char" data-char="R">R</span>
+      <span class="pre-char" data-char="U">U</span>
+      <span class="pre-char" data-char="S">S</span>
     </div>
-
     <div class="pre-subtitle">
-        <span class="pre-sub-line">built to fall &nbsp;·&nbsp; born to fly</span>
+      <span class="pre-sub-line">built to fall &nbsp;&middot;&nbsp; born to fly</span>
     </div>
+  </div>
 
-</div>
+  <!-- ── SCENE 1: Hero ── -->
+  <section id="hero">
 
-<section id="hero">
-
-    <!-- Layer 1: Ghost background — Image 1 filtered -->
     <div class="hero-ghost"></div>
 
-    <!-- Layer 2: Three.js canvas — Icarus figure -->
     <canvas id="icarus-canvas"></canvas>
 
-    <!-- Layer 3: SVG rough-text filter definition -->
     <svg class="svg-filters" aria-hidden="true">
-        <defs>
-            <filter id="rough-text" x="-5%" y="-5%" width="110%" height="110%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" seed="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"
-                    id="displacement-scale" />
-            </filter>
-        </defs>
+      <defs>
+        <filter id="rough-text" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.035"
+            numOctaves="4"
+            seed="3"
+            result="noise" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="0"
+            xChannelSelector="R"
+            yChannelSelector="G"
+            id="displacement-scale" />
+        </filter>
+      </defs>
     </svg>
 
-    <!-- Layer 4: Sky background -->
+    <!-- Scene 2 sky layer lives inside #hero -->
     <div class="sky-layer" aria-hidden="true">
-
-        <div class="sky-bg"></div>
-
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
-        <div class="cloud cloud-4"></div>
-        <div class="cloud cloud-5"></div>
-
-        <div class="sun-glow"></div>
-
+      <div class="sky-bg"></div>
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+      <div class="cloud cloud-4"></div>
+      <div class="cloud cloud-5"></div>
+      <div class="sun-glow"></div>
     </div>
 
-    <!-- Layer 5: Hero text -->
     <div class="hero-content">
-
-        <div class="hero-meta">
-            <span>Greek Mythology · Rewritten · 2026</span>
+      <div class="hero-meta">
+        <span>Greek Mythology &middot; Rewritten &middot; 2026</span>
+      </div>
+      <div class="hero-title-wrap">
+        <div class="hero-title-left">
+          <span class="hero-char">I</span>
+          <span class="hero-char">C</span>
+          <span class="hero-char">A</span>
         </div>
-
-        <div class="hero-title-wrap">
-            <div class="hero-title-left">
-                <span class="hero-char">I</span>
-                <span class="hero-char">C</span>
-                <span class="hero-char">A</span>
-            </div>
-            <div class="hero-title-right">
-                <span class="hero-char">R</span>
-                <span class="hero-char">U</span>
-                <span class="hero-char">S</span>
-            </div>
+        <div class="hero-title-right">
+          <span class="hero-char">R</span>
+          <span class="hero-char">U</span>
+          <span class="hero-char">S</span>
         </div>
+      </div>
+      <div class="hero-tagline">
+        <span class="tagline-left">built to <em>fall</em></span>
+        <span class="tagline-divider">&middot;</span>
+        <span class="tagline-right">born to <em>fly</em></span>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>scroll to begin</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
 
-        <div class="hero-tagline">
-            <span class="tagline-left">built to <em>fall</em></span>
-            <span class="tagline-divider">·</span>
-            <span class="tagline-right">born to <em>fly</em></span>
-        </div>
+  </section>
 
-        <div class="hero-scroll-hint">
-            <span>scroll to begin</span>
-            <div class="scroll-line"></div>
-        </div>
+  <!-- ── SCENES 3–5: Story ── -->
+  <section id="scene-story">
+
+    <div class="story-sky">
+      <div class="story-sky-bg"></div>
+      <div class="story-cloud story-cloud-1"></div>
+      <div class="story-cloud story-cloud-2"></div>
+      <div class="story-cloud story-cloud-3"></div>
+    </div>
+
+    <div class="story-storm"></div>
+
+    <div class="feathers" aria-hidden="true">
+      <div class="feather feather-1">&#120076;</div>
+      <div class="feather feather-2">&#120076;</div>
+      <div class="feather feather-3">&#120076;</div>
+      <div class="feather feather-4">&#120076;</div>
+      <div class="feather feather-5">&#120076;</div>
+    </div>
+
+    <div class="height-moment">
+      <span class="height-label">at the height of his flight</span>
+    </div>
+
+    <div class="annotations">
+
+      <div class="ann ann-bold ann-top-left"
+           data-from="top"
+           style="--ann-top:8%; --ann-left:5%;">
+        TO MUCH.
+      </div>
+      <div class="ann ann-bold ann-top-right"
+           data-from="top-right"
+           style="--ann-top:5%; --ann-left:62%;">
+        TOO CLOSE
+      </div>
+      <div class="ann ann-small ann-top-center"
+           data-from="top"
+           style="--ann-top:3%; --ann-left:28%; --ann-rotate:-2deg;">
+        Live fast. Die young.
+      </div>
+      <div class="ann ann-small ann-right-1"
+           data-from="right"
+           style="--ann-top:18%; --ann-left:68%; --ann-rotate:3deg;">
+        The sun was my undoing.
+      </div>
+      <div class="ann ann-definition ann-right-2"
+           data-from="right"
+           style="--ann-top:32%; --ann-left:64%; --ann-rotate:-1deg;">
+        <span class="ann-def-title">Eleutheromnia</span>
+        <span class="ann-def-pos">noun</span>
+        <span class="ann-def-body">an intense and irresistible desire for freedom</span>
+      </div>
+      <div class="ann ann-small ann-right-3"
+           data-from="right"
+           style="--ann-top:42%; --ann-left:72%; --ann-rotate:4deg;">
+        Every fall is a chance to rise.
+      </div>
+      <div class="ann ann-medium ann-right-4"
+           data-from="right"
+           style="--ann-top:52%; --ann-left:65%; --ann-rotate:-2deg;">
+        There is a bitter triumph in crashing<br/>
+        when you should be soaring.
+      </div>
+      <div class="ann ann-small ann-left-1"
+           data-from="left"
+           style="--ann-top:22%; --ann-left:2%; --ann-rotate:2deg;">
+        Maybe in another life...
+      </div>
+      <div class="ann ann-small ann-left-2"
+           data-from="left"
+           style="--ann-top:38%; --ann-left:3%; --ann-rotate:-3deg;">
+        Memento mori.
+      </div>
+      <div class="ann ann-definition ann-left-3"
+           data-from="left"
+           style="--ann-top:48%; --ann-left:1%; --ann-rotate:1deg;">
+        <span class="ann-def-title">LOVE</span>
+        <span class="ann-def-pos">noun</span>
+        <span class="ann-def-body">A strong feeling of warm attachment,<br/>
+        such as for a parent, lover, or the Sun.</span>
+      </div>
+      <div class="ann ann-medium ann-left-4"
+           data-from="left"
+           style="--ann-top:60%; --ann-left:2%; --ann-rotate:-1deg;">
+        You gave me wings, father.<br/>
+        You told me we could fly.
+      </div>
+      <div class="ann ann-large ann-center-right"
+           data-from="right"
+           style="--ann-top:40%; --ann-left:44%;">
+        I LOVED YOU<br/>
+        AS ICARUS LOVED<br/>
+        THE SUN...
+      </div>
+      <div class="ann ann-small ann-center-low"
+           data-from="bottom"
+           style="--ann-top:72%; --ann-left:35%; --ann-rotate:-1deg;">
+        Icarus laughed as he fell.<br/>
+        Threw his head back and yelled into the winds,<br/>
+        arms spread wide, teeth bared to the world.
+      </div>
+      <div class="ann ann-bold ann-bottom-left"
+           data-from="bottom-left"
+           style="--ann-top:82%; --ann-left:3%;">
+        THE FOOL.
+      </div>
+      <div class="ann ann-definition ann-bottom-center"
+           data-from="bottom"
+           style="--ann-top:78%; --ann-left:40%;">
+        <span class="ann-def-title">HUBRIS</span>
+        <span class="ann-def-pos">noun</span>
+        <span class="ann-def-body">excessive pride or<br/>self-confidence</span>
+      </div>
+      <div class="ann ann-small ann-bottom-right"
+           data-from="bottom-right"
+           style="--ann-top:86%; --ann-left:68%; --ann-rotate:2deg;">
+        "LIKE A GREEK TRAGEDY"
+      </div>
+      <div class="ann ann-rewrite ann-gut-punch"
+           data-from="center"
+           style="--ann-top:88%; --ann-left:55%; --ann-rotate:1deg;">
+        Icarus was free.
+      </div>
 
     </div>
 
-</section>
-
-<section id="scene-story">
-
-  <!-- Sky continuation from Scene 2 -->
-  <div class="story-sky">
-    <div class="story-sky-bg"></div>
-    <div class="story-cloud story-cloud-1"></div>
-    <div class="story-cloud story-cloud-2"></div>
-    <div class="story-cloud story-cloud-3"></div>
-  </div>
-
-  <!-- Storm rising from bottom (Scene 4) -->
-  <div class="story-storm"></div>
-
-  <!-- Icarus figure — Three.js canvas carries over,
-       but we also need a CSS figure for composition shift -->
-  <!-- 
-    NOTE: The Three.js canvas from #hero is fixed/absolute 
-    so it naturally overlays this section too.
-    No new canvas needed here — setIcarusFallProgress 
-    continues to be called from this scene's onUpdate.
-  -->
-
-  <!-- Floating feathers (CSS only) -->
-  <div class="feathers" aria-hidden="true">
-    <div class="feather feather-1">𝓌</div>
-    <div class="feather feather-2">𝓌</div>
-    <div class="feather feather-3">𝓌</div>
-    <div class="feather feather-4">𝓌</div>
-    <div class="feather feather-5">𝓌</div>
-  </div>
-
-  <!-- Scene 3 overlay: "The Height" — brief moment of hope -->
-  <div class="height-moment">
-    <span class="height-label">at the height of his flight</span>
-  </div>
-
-  <!-- Scene 4: Annotation texts — the mockery -->
-  <!-- Each has data-from to define entry direction -->
-  <!-- Positions match Image 3 reference composition -->
-
-  <div class="annotations" aria-hidden="false">
-
-    <!-- TOP cluster — aggressive, cruel -->
-    <div class="ann ann-bold ann-top-left" 
-         data-from="top" 
-         style="--ann-top:8%; --ann-left:5%;">
-      TO MUCH.
+    <div class="rewrite-block">
+      <div class="rewrite-line" data-line="1">
+        &ldquo;He didn&rsquo;t fall because he flew too high.
+      </div>
+      <div class="rewrite-line" data-line="2">
+        He fell because he flew alone.&rdquo;
+      </div>
+      <div class="rewrite-divider"></div>
+      <div class="rewrite-line rewrite-body" data-line="3">
+        Daedalus gave him instructions
+      </div>
+      <div class="rewrite-line rewrite-body" data-line="4">
+        instead of company.
+      </div>
+      <div class="rewrite-line rewrite-body" data-line="5">
+        That was the real design flaw.
+      </div>
     </div>
 
-    <div class="ann ann-bold ann-top-right" 
-         data-from="top-right"
-         style="--ann-top:5%; --ann-left:62%;">
-      TOO CLOSE
+  </section>
+
+  <!-- ── SCENE 6: Ocean ── -->
+  <section id="scene-ocean">
+
+    <div class="ocean-sky"></div>
+
+    <div class="ocean-gap-text" aria-hidden="true">
+      <span class="gap-line-1">the ocean remembers</span>
+      <span class="gap-line-2">every boy who thought he could escape it</span>
     </div>
 
-    <div class="ann ann-small ann-top-center"
-         data-from="top"
-         style="--ann-top:3%; --ann-left:28%; --ann-rotate: -2deg;">
-      Live fast. Die young.
+    <div class="ocean-body">
+      <div class="ocean-wave ocean-wave-back"></div>
+      <div class="ocean-wave ocean-wave-mid"></div>
+      <div class="ocean-wave ocean-wave-front"></div>
+      <div class="ocean-shimmer-wrap">
+        <div class="ocean-shimmer-line"></div>
+      </div>
+      <div class="ocean-foam-layer">
+        <div class="foam-dot foam-1"></div>
+        <div class="foam-dot foam-2"></div>
+        <div class="foam-dot foam-3"></div>
+        <div class="foam-dot foam-4"></div>
+        <div class="foam-dot foam-5"></div>
+        <div class="foam-dot foam-6"></div>
+        <div class="foam-dot foam-7"></div>
+        <div class="foam-dot foam-8"></div>
+        <div class="foam-dot foam-9"></div>
+        <div class="foam-dot foam-10"></div>
+      </div>
+      <div class="ocean-interior"></div>
     </div>
 
-    <!-- RIGHT cluster -->
-    <div class="ann ann-small ann-right-1"
-         data-from="right"
-         style="--ann-top:18%; --ann-left:68%; --ann-rotate: 3deg;">
-      The sun was my undoing.
+  </section>
+
+  <!-- ── SCENE 7: Manifesto ── -->
+  <section id="scene-manifesto">
+
+    <div class="manifesto-marker">
+      <span class="marker-num">VII</span>
+      <span class="marker-rule"></span>
+      <span class="marker-title">Manifesto</span>
     </div>
 
-    <div class="ann ann-definition ann-right-2"
-         data-from="right"
-         style="--ann-top:32%; --ann-left:64%; --ann-rotate: -1deg;">
-      <span class="ann-def-title">Eleutheromnia</span>
-      <span class="ann-def-pos">noun</span>
-      <span class="ann-def-body">an intense and irresistible desire for freedom</span>
+    <div class="manifesto-lines">
+      <div class="m-line-wrap m-line-1">
+        <span class="m-line m-body-dim">This is not a story about a boy</span>
+      </div>
+      <div class="m-line-wrap m-line-2">
+        <span class="m-line m-body-dim">who flew too close to the sun.</span>
+      </div>
+      <div class="m-line-wrap m-line-3">
+        <span class="m-line m-body-mid">This is a story about what it costs</span>
+      </div>
+      <div class="m-line-wrap m-line-4">
+        <span class="m-line m-body-mid">to want more than the earth allows.</span>
+      </div>
+      <div class="m-line-wrap m-line-5">
+        <span class="m-line m-statement">Icarus was not a fool.</span>
+      </div>
+      <div class="m-line-wrap m-line-6">
+        <span class="m-line m-body-mid">He was the first person to understand</span>
+      </div>
+      <div class="m-line-wrap m-line-7">
+        <span class="m-line m-body-mid">that limits are not laws &mdash;</span>
+      </div>
+      <div class="m-line-wrap m-line-8">
+        <span class="m-line m-statement m-italic">they are invitations.</span>
+      </div>
+      <div class="m-line-wrap m-line-9 m-go-higher-wrap">
+        <span class="m-line m-go-higher">Go higher.</span>
+      </div>
+      <div class="m-line-wrap m-line-10">
+        <span class="m-line m-statement">Even if you have to fall.</span>
+      </div>
+      <div class="m-line-wrap m-line-11">
+        <span class="m-line m-statement m-italic">Especially if you have to fall.</span>
+      </div>
     </div>
 
-    <div class="ann ann-small ann-right-3"
-         data-from="right"
-         style="--ann-top:42%; --ann-left:72%; --ann-rotate: 4deg;">
-      Every fall is a chance to rise.
+    <div class="manifesto-credit">
+      <span>The Icarus Papers &middot; Claude &amp; Zeaki &middot; 2026</span>
     </div>
 
-    <div class="ann ann-medium ann-right-4"
-         data-from="right"
-         style="--ann-top:52%; --ann-left:65%; --ann-rotate: -2deg;">
-      There is a bitter triumph in crashing<br/>
-      when you should be soaring.
+  </section>
+
+  <!-- ── SCENE 8: The Close ── -->
+  <section id="scene-close">
+
+    <div class="close-atmosphere">
+      <div class="close-atm-base"></div>
+      <div class="close-atm-texture-1"></div>
+      <div class="close-atm-texture-2"></div>
+      <div class="close-atm-texture-3"></div>
     </div>
 
-    <!-- LEFT cluster -->
-    <div class="ann ann-small ann-left-1"
-         data-from="left"
-         style="--ann-top:22%; --ann-left:2%; --ann-rotate: 2deg;">
-      Maybe in another life...
+    <div class="close-figure-layer"></div>
+
+    <div class="close-fragments" aria-hidden="true">
+      <div class="fragment fragment-1"></div>
+      <div class="fragment fragment-2"></div>
+      <div class="fragment fragment-3"></div>
+      <div class="fragment fragment-4"></div>
+      <div class="fragment fragment-5"></div>
     </div>
 
-    <div class="ann ann-small ann-left-2"
-         data-from="left"
-         style="--ann-top:38%; --ann-left:3%; --ann-rotate: -3deg;">
-      Memento mori.
+    <div class="close-marker">
+      <span class="close-marker-text">Icarus</span>
+      <span class="close-marker-sub">VIII &middot; The Close</span>
     </div>
 
-    <div class="ann ann-definition ann-left-3"
-         data-from="left"
-         style="--ann-top:48%; --ann-left:1%; --ann-rotate: 1deg;">
-      <span class="ann-def-title">LOVE</span>
-      <span class="ann-def-pos">noun</span>
-      <span class="ann-def-body">A strong feeling of warm attachment,<br/>
-      such as for a parent, lover, or the Sun.</span>
+    <div class="close-poem">
+      <div class="poem-stanza poem-stanza-1">
+        <p class="poem-line poem-opening">If you are the sun &mdash;</p>
+        <p class="poem-line poem-opening">then I must be Icarus.</p>
+      </div>
+      <div class="poem-stanza poem-stanza-2">
+        <p class="poem-line">For I know I&rsquo;m bound to fall.</p>
+        <p class="poem-line">And I may even drown.</p>
+        <p class="poem-line">But despite it all &mdash;</p>
+        <p class="poem-line poem-emphasis">I&rsquo;ll smile the whole way down.</p>
+      </div>
+      <div class="poem-stanza poem-stanza-3">
+        <p class="poem-line poem-body">It&rsquo;s worth it to burn</p>
+        <p class="poem-line poem-body">when it&rsquo;s coming from you.</p>
+        <p class="poem-line poem-body">If it isn&rsquo;t my turn &mdash;</p>
+        <p class="poem-line poem-final">I&rsquo;m proud that I flew.</p>
+      </div>
     </div>
 
-    <div class="ann ann-medium ann-left-4"
-         data-from="left"
-         style="--ann-top:60%; --ann-left:2%; --ann-rotate: -1deg;">
-      You gave me wings, father.<br/>
-      You told me we could fly.
-    </div>
+    <footer class="close-footer">
+      <div class="footer-line"></div>
+      <div class="footer-content">
+        <span class="footer-title">The Icarus Papers</span>
+        <span class="footer-divider">&middot;</span>
+        <span class="footer-credit">Claude &amp; Zeaki</span>
+        <span class="footer-divider">&middot;</span>
+        <span class="footer-year">2026</span>
+        <span class="footer-divider">&middot;</span>
+        <span class="footer-note">Built in one conversation</span>
+      </div>
+    </footer>
 
-    <!-- CENTER / DRAMATIC -->
-    <div class="ann ann-large ann-center-right"
-         data-from="right"
-         style="--ann-top:40%; --ann-left:44%;">
-      I LOVED YOU<br/>
-      AS ICARUS LOVED<br/>
-      THE SUN...
-    </div>
+  </section>
 
-    <div class="ann ann-small ann-center-low"
-         data-from="bottom"
-         style="--ann-top:72%; --ann-left:35%; --ann-rotate: -1deg;">
-      Icarus laughed as he fell.<br/>
-      Threw his head back and yelled into the winds,<br/>
-      arms spread wide, teeth bared to the world.
-    </div>
+  <!-- Vite entry point -->
+  <script type="module" src="/src/main.js"></script>
 
-    <!-- BOTTOM — the verdicts -->
-    <div class="ann ann-bold ann-bottom-left"
-         data-from="bottom-left"
-         style="--ann-top:82%; --ann-left:3%;">
-      THE FOOL.
-    </div>
-
-    <div class="ann ann-definition ann-bottom-center"
-         data-from="bottom"
-         style="--ann-top:78%; --ann-left:40%;">
-      <span class="ann-def-title">HUBRIS</span>
-      <span class="ann-def-pos">noun</span>
-      <span class="ann-def-body">excessive pride or<br/>self-confidence</span>
-    </div>
-
-    <div class="ann ann-small ann-bottom-right"
-         data-from="bottom-right"
-         style="--ann-top:86%; --ann-left:68%; --ann-rotate: 2deg;">
-      "LIKE A GREEK TRAGEDY"
-    </div>
-
-    <!-- THE GUT PUNCH — last to appear, gold color — our rewrite -->
-    <div class="ann ann-rewrite ann-gut-punch"
-         data-from="center"
-         style="--ann-top:88%; --ann-left:55%; --ann-rotate: 1deg;">
-      Icarus was free.
-    </div>
-
-  </div>
-
-  <!-- Scene 5: The rewrite text — appears as annotations scatter -->
-  <!-- Icarus slides right, this fills the left -->
-  <div class="rewrite-block">
-
-    <div class="rewrite-line" data-line="1">
-      "He didn't fall because he flew too high.
-    </div>
-    <div class="rewrite-line" data-line="2">
-      He fell because he flew alone."
-    </div>
-    <div class="rewrite-divider"></div>
-    <div class="rewrite-line rewrite-body" data-line="3">
-      Daedalus gave him instructions
-    </div>
-    <div class="rewrite-line rewrite-body" data-line="4">
-      instead of company.
-    </div>
-    <div class="rewrite-line rewrite-body" data-line="5">
-      That was the real design flaw.
-    </div>
-
-  </div>
-
-</section>
-
-<section id="scene-ocean">
-
-  <!-- Sky darkens in this section -->
-  <div class="ocean-sky"></div>
-
-  <!-- The gap text — small, monospace, floats in the space
-       between Icarus and the rising ocean surface -->
-  <div class="ocean-gap-text" aria-hidden="true">
-    <span class="gap-line-1">the ocean remembers</span>
-    <span class="gap-line-2">every boy who thought he could escape it</span>
-  </div>
-
-  <!-- The ocean — rises from bottom of viewport -->
-  <div class="ocean-body">
-
-    <!-- Three wave layers — each animates independently -->
-    <div class="ocean-wave ocean-wave-back"></div>
-    <div class="ocean-wave ocean-wave-mid"></div>
-    <div class="ocean-wave ocean-wave-front"></div>
-
-    <!-- Shimmer line — thin light at the surface -->
-    <div class="ocean-shimmer-wrap">
-      <div class="ocean-shimmer-line"></div>
-    </div>
-
-    <!-- Foam particles at the surface -->
-    <div class="ocean-foam-layer">
-      <div class="foam-dot foam-1"></div>
-      <div class="foam-dot foam-2"></div>
-      <div class="foam-dot foam-3"></div>
-      <div class="foam-dot foam-4"></div>
-      <div class="foam-dot foam-5"></div>
-      <div class="foam-dot foam-6"></div>
-      <div class="foam-dot foam-7"></div>
-      <div class="foam-dot foam-8"></div>
-      <div class="foam-dot foam-9"></div>
-      <div class="foam-dot foam-10"></div>
-    </div>
-
-    <!-- Ocean interior depth gradient -->
-    <div class="ocean-interior"></div>
-
-  </div>
-
-</section>
-
-<section id="scene-manifesto">
-
-  <!-- Section marker -->
-  <div class="manifesto-marker">
-    <span class="marker-num">VII</span>
-    <span class="marker-rule"></span>
-    <span class="marker-title">Manifesto</span>
-  </div>
-
-  <!-- All lines in a centered column -->
-  <div class="manifesto-lines">
-
-    <div class="m-line-wrap m-line-1">
-      <span class="m-line m-body-dim">
-        This is not a story about a boy
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-2">
-      <span class="m-line m-body-dim">
-        who flew too close to the sun.
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-3">
-      <span class="m-line m-body-mid">
-        This is a story about what it costs
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-4">
-      <span class="m-line m-body-mid">
-        to want more than the earth allows.
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-5">
-      <span class="m-line m-statement">
-        Icarus was not a fool.
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-6">
-      <span class="m-line m-body-mid">
-        He was the first person to understand
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-7">
-      <span class="m-line m-body-mid">
-        that limits are not laws —
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-8">
-      <span class="m-line m-statement m-italic">
-        they are invitations.
-      </span>
-    </div>
-
-    <!-- The pivot line — crimson, massive -->
-    <div class="m-line-wrap m-line-9 m-go-higher-wrap">
-      <span class="m-line m-go-higher">
-        Go higher.
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-10">
-      <span class="m-line m-statement">
-        Even if you have to fall.
-      </span>
-    </div>
-
-    <div class="m-line-wrap m-line-11">
-      <span class="m-line m-statement m-italic">
-        Especially if you have to fall.
-      </span>
-    </div>
-
-  </div>
-
-  <!-- Small credit line at very bottom -->
-  <div class="manifesto-credit">
-    <span>The Icarus Papers · Claude &amp; Zeaki · 2026</span>
-  </div>
-
-</section>
+</body>
+</html>
