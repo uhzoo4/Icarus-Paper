@@ -1,11 +1,18 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { setIcarusCompositionShift } from '../canvas/icarus-three.js';
+import { setIcarusCompositionShift, resetIcarusPosition } from '../canvas/icarus-three.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initOcean() {
-    const section = document.getElementById('scene-ocean');
+    /*
+      FIX: Reset Icarus to center before this scene begins.
+      Scene 3 left mesh.position.y at ~-4.5 and mesh.position.x at ~2.2.
+      Without this reset the Three.js figure is off-camera for the
+      entire ocean + manifesto + close scenes.
+    */
+    resetIcarusPosition();
+
     const oceanSky = document.querySelector('.ocean-sky');
     const oceanBody = document.querySelector('.ocean-body');
     const shimmerWrap = document.querySelector('.ocean-shimmer-wrap');
@@ -30,21 +37,21 @@ export function initOcean() {
     tl.to(oceanSky, {
         opacity: 1,
         duration: 0.5,
-        ease: 'power2.inOut'
+        ease: 'power2.inOut',
     }, 0);
 
     /* ── Phase 2 (0 → 0.75): Ocean rises ── */
     tl.to(oceanBody, {
         yPercent: 0,
         duration: 0.75,
-        ease: 'power3.out'
+        ease: 'power3.out',
     }, 0);
 
     /* ── Phase 3 (0.35 → 0.55): Shimmer line appears ── */
     tl.to(shimmerWrap, {
         opacity: 1,
         duration: 0.2,
-        ease: 'power2.out'
+        ease: 'power2.out',
     }, 0.35);
 
     /* ── Phase 4 (0.4 → 0.65): Foam particles emerge ── */
@@ -52,35 +59,35 @@ export function initOcean() {
         opacity: 1,
         duration: 0.15,
         stagger: 0.018,
-        ease: 'power2.out'
+        ease: 'power2.out',
     }, 0.4);
 
     /* ── Phase 5 (0.5 → 0.75): Gap text fades in ── */
     tl.to(gapText, {
         opacity: 1,
         duration: 0.01,
-        ease: 'none'
+        ease: 'none',
     }, 0.5);
 
     tl.to(gapLine1, {
         opacity: 1,
         y: 0,
         duration: 0.1,
-        ease: 'power2.out'
+        ease: 'power2.out',
     }, 0.5);
 
     tl.to(gapLine2, {
         opacity: 1,
         y: 0,
         duration: 0.1,
-        ease: 'power2.out'
+        ease: 'power2.out',
     }, 0.56);
 
     /* ── Phase 6 (0.82 → 0.92): Gap text fades out ── */
     tl.to(gapText, {
         opacity: 0,
         duration: 0.1,
-        ease: 'power2.in'
+        ease: 'power2.in',
     }, 0.82);
 
     ScrollTrigger.create({
@@ -91,11 +98,10 @@ export function initOcean() {
         scrub: 1.5,
         animation: tl,
         onUpdate: (self) => {
-            const shiftReverse = 1 - self.progress;
-            setIcarusCompositionShift(shiftReverse);
+            setIcarusCompositionShift(1 - self.progress);
         },
         onLeave: () => {
             setIcarusCompositionShift(0);
-        }
+        },
     });
 }

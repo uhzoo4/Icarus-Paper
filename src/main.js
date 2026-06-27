@@ -16,13 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ── 1. Smooth scroll engine ── */
     initScroll()
+    const lenis = getLenis()
 
-    /* ── 2. Lift Three.js canvas to fixed body overlay ──
-       The canvas starts inside #hero (position: absolute).
-       Scenes 3-6 also drive Icarus — so it must stay
-       visible across the full page. Moving it to body
-       and making it fixed achieves that without
-       touching any locked scene files.             */
+    /* ── 2. Custom cursor (pointer devices only) ── */
+    const cursor = document.querySelector('.cursor')
+    if (cursor && window.matchMedia('(pointer: fine)').matches) {
+        const xTo = gsap.quickTo(cursor, 'x', { duration: 0.35, ease: 'power3.out' })
+        const yTo = gsap.quickTo(cursor, 'y', { duration: 0.35, ease: 'power3.out' })
+
+        window.addEventListener('mousemove', e => {
+            xTo(e.clientX)
+            yTo(e.clientY)
+        })
+
+        document.body.style.cursor = 'none'
+
+        /* Cursor grows over clickable elements */
+        document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+            el.addEventListener('mouseenter', () =>
+                gsap.to(cursor, { scale: 2.4, duration: 0.3 }))
+            el.addEventListener('mouseleave', () =>
+                gsap.to(cursor, { scale: 1, duration: 0.3 }))
+        })
+    }
+
+    /* ── 3. Scroll progress bar ── */
+    const progressBar = document.querySelector('.scroll-progress-bar')
+    lenis.on('scroll', ({ progress }) => {
+        if (progressBar) gsap.set(progressBar, { scaleY: progress, transformOrigin: 'top center' })
+    })
+
+    /* ── 4. Lift Three.js canvas to fixed full-page overlay ──
+       Starts at opacity 0. Fades in after hero entry.
+       Fades out before manifesto (pure text — no figure needed). */
     const canvas = document.getElementById('icarus-canvas')
     if (canvas) {
         document.body.appendChild(canvas)
@@ -33,25 +59,29 @@ document.addEventListener('DOMContentLoaded', () => {
             height: '100vh',
             pointerEvents: 'none',
             zIndex: '10',
+            opacity: '0',
         })
     }
 
-    /* ── 3. Register all scroll scenes immediately ──
-       ScrollTriggers register now but only fire
-       when the user reaches their trigger elements.
-       Order matches document flow.                 */
+    /* ── 5. Register all scroll scenes ── */
     initParting()
     initStory()
     initOcean()
     initManifesto()
     initClose()
 
-    /* ── 4. Kill the hero roughTween on first scroll ──
-       heroRoughTween is set by initHero() later.
-       Lenis fires this the moment any scroll begins,
-       before the parting animation takes over the
-       displacement map. Prevents tween conflict.   */
-    const lenis = getLenis()
+    /* ── 6. Canvas lifecycle — fade out for manifesto/close ── */
+    if (canvas) {
+        ScrollTrigger.create({
+            trigger: '#scene-manifesto',
+            start: 'top 65%',
+            end: 'top 10%',
+            onEnter: () => gsap.to(canvas, { opacity: 0, duration: 1.0, ease: 'power2.in' }),
+            onLeaveBack: () => gsap.to(canvas, { opacity: 1, duration: 0.8, ease: 'power2.out' }),
+        })
+    }
+
+    /* ── 7. Kill heroRoughTween the moment scroll begins ── */
     let roughKilled = false
     lenis.on('scroll', () => {
         if (roughKilled) return
@@ -61,17 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    /* ── 5. Preloader → Hero chain ──
-       Preloader runs first. When it completes:
-         a. Refresh ScrollTrigger (document height
-            changes when preloader is removed)
-         b. Fire hero entry animation            */
+    /* ── 8. Preloader → Hero → Live ── */
     initPreloader(() => {
+
+        /* First refresh: correct heights after preloader removal */
         ScrollTrigger.refresh()
 
         initHero(() => {
-            /* Hero entry complete.
-               User can now scroll — all triggers are live. */
+            /* Canvas fades in as hero animation completes */
+            if (canvas) {
+                gsap.to(canvas, { opacity: 1, duration: 1.6, ease: 'power2.out' })
+            }
+
+            /*
+              Second refresh: after pinned scenes have all painted their
+              initial states, ScrollTrigger recalculates every trigger
+              position from the correct document height.
+              100ms gives the browser one paint cycle to settle.
+            */
+            setTimeout(() => ScrollTrigger.refresh(), 100)
         })
     })
 

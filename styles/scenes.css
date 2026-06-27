@@ -418,135 +418,148 @@
 /* ══ SCENE 6: THE OCEAN ══ */
 
 #scene-ocean {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: #07070F;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #07070F;
 }
 
 /* ── Sky ── */
 
 .ocean-sky {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-    to bottom,
-    #0A1828 0%,
-    #060E18 40%,
-    #020810 80%,
-    #010408 100%
-  );
-  opacity: 0;
-  pointer-events: none;
-  will-change: opacity;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(to bottom,
+            #0A1828 0%,
+            #060E18 40%,
+            #020810 80%,
+            #010408 100%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
 }
 
 /* ── Gap text ── */
 
 .ocean-gap-text {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  will-change: opacity;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
 .gap-line-1 {
-  font-family: 'Courier New', monospace;
-  font-size: clamp(9px, 1vw, 11px);
-  letter-spacing: 0.22em;
-  color: rgba(100, 140, 180, 0.5);
-  text-transform: uppercase;
-  display: block;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(9px, 1vw, 11px);
+    letter-spacing: 0.22em;
+    color: rgba(100, 140, 180, 0.5);
+    text-transform: uppercase;
+    display: block;
 }
 
 .gap-line-2 {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: clamp(13px, 1.6vw, 18px);
-  letter-spacing: 0.04em;
-  color: rgba(140, 180, 210, 0.35);
-  display: block;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.6vw, 18px);
+    letter-spacing: 0.04em;
+    color: rgba(140, 180, 210, 0.35);
+    display: block;
 }
 
 /* ── Ocean body ── */
 
 .ocean-body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 55vh;
-  background: #020408;
-  transform: translateY(100%);
-  will-change: transform;
-  z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55vh;
+    background: #020408;
+    transform: translateY(100%);
+    will-change: transform;
+    z-index: 2;
 }
 
 /* ── Wave layers — sit above the ocean body ── */
 
 .ocean-wave {
-  position: absolute;
-  left: -5%;
-  width: 110%;
-  pointer-events: none;
+    position: absolute;
+    left: -5%;
+    width: 110%;
+    pointer-events: none;
 }
 
 .ocean-wave-back {
-  top: -28px;
-  height: 56px;
-  background: #040C18;
-  border-radius: 48% 52% 0 0 / 28px 28px 0 0;
-  opacity: 0.8;
-  animation: waveSwell-back 5.5s ease-in-out infinite alternate;
+    top: -28px;
+    height: 56px;
+    background: #040C18;
+    border-radius: 48% 52% 0 0 / 28px 28px 0 0;
+    opacity: 0.8;
+    animation: waveSwell-back 5.5s ease-in-out infinite alternate;
 }
 
 .ocean-wave-mid {
-  top: -20px;
-  height: 42px;
-  background: #051420;
-  border-radius: 52% 48% 0 0 / 20px 20px 0 0;
-  opacity: 0.9;
-  animation: waveSwell-mid 3.8s ease-in-out infinite alternate;
+    top: -20px;
+    height: 42px;
+    background: #051420;
+    border-radius: 52% 48% 0 0 / 20px 20px 0 0;
+    opacity: 0.9;
+    animation: waveSwell-mid 3.8s ease-in-out infinite alternate;
 }
 
 .ocean-wave-front {
-  top: -14px;
-  height: 30px;
-  background: #061828;
-  border-radius: 50% 50% 0 0 / 14px 14px 0 0;
-  opacity: 1;
-  animation: waveSwell-front 2.6s ease-in-out infinite alternate;
+    top: -14px;
+    height: 30px;
+    background: #061828;
+    border-radius: 50% 50% 0 0 / 14px 14px 0 0;
+    opacity: 1;
+    animation: waveSwell-front 2.6s ease-in-out infinite alternate;
 }
 
 @keyframes waveSwell-back {
-  0%   { transform: scaleX(1)    translateY(0px);
-         border-radius: 48% 52% 0 0 / 28px 28px 0 0; }
-  100% { transform: scaleX(1.04) translateY(-10px);
-         border-radius: 54% 46% 0 0 / 32px 24px 0 0; }
+    0% {
+        transform: scaleX(1) translateY(0px);
+        border-radius: 48% 52% 0 0 / 28px 28px 0 0;
+    }
+
+    100% {
+        transform: scaleX(1.04) translateY(-10px);
+        border-radius: 54% 46% 0 0 / 32px 24px 0 0;
+    }
 }
 
 @keyframes waveSwell-mid {
-  0%   { transform: scaleX(1)    translateY(0px);
-         border-radius: 52% 48% 0 0 / 20px 20px 0 0; }
-  100% { transform: scaleX(1.03) translateY(-7px);
-         border-radius: 46% 54% 0 0 / 24px 16px 0 0; }
+    0% {
+        transform: scaleX(1) translateY(0px);
+        border-radius: 52% 48% 0 0 / 20px 20px 0 0;
+    }
+
+    100% {
+        transform: scaleX(1.03) translateY(-7px);
+        border-radius: 46% 54% 0 0 / 24px 16px 0 0;
+    }
 }
 
 @keyframes waveSwell-front {
-  0%   { transform: scaleX(1)    translateY(0px);
-         border-radius: 50% 50% 0 0 / 14px 14px 0 0; }
-  100% { transform: scaleX(1.02) translateY(-5px);
-         border-radius: 55% 45% 0 0 / 18px 10px 0 0; }
+    0% {
+        transform: scaleX(1) translateY(0px);
+        border-radius: 50% 50% 0 0 / 14px 14px 0 0;
+    }
+
+    100% {
+        transform: scaleX(1.02) translateY(-5px);
+        border-radius: 55% 45% 0 0 / 18px 10px 0 0;
+    }
 }
 
 /* ── Shimmer line ── */
@@ -555,505 +568,676 @@
    Visible opacity = wrap × line. */
 
 .ocean-shimmer-wrap {
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  z-index: 5;
-  opacity: 0;
-  will-change: opacity;
-  pointer-events: none;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 5;
+    opacity: 0;
+    will-change: opacity;
+    pointer-events: none;
 }
 
 .ocean-shimmer-line {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(15, 58, 90, 0.6) 20%,
-    rgba(30, 90, 140, 0.9) 50%,
-    rgba(15, 58, 90, 0.6) 80%,
-    transparent 100%
-  );
-  will-change: opacity;
-  animation: shimmerPulse 3s ease-in-out infinite;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(15, 58, 90, 0.6) 20%,
+            rgba(30, 90, 140, 0.9) 50%,
+            rgba(15, 58, 90, 0.6) 80%,
+            transparent 100%);
+    will-change: opacity;
+    animation: shimmerPulse 3s ease-in-out infinite;
 }
 
 @keyframes shimmerPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1;   }
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 /* ── Foam particles ── */
 
 .ocean-foam-layer {
-  position: absolute;
-  top: -6px;
-  left: 0;
-  width: 100%;
-  height: 12px;
-  z-index: 6;
-  pointer-events: none;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    z-index: 6;
+    pointer-events: none;
 }
 
 .foam-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(180, 210, 230, 0.4);
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: foamFloat 2.5s ease-in-out infinite alternate;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(180, 210, 230, 0.4);
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: foamFloat 2.5s ease-in-out infinite alternate;
 }
 
-.foam-1  { width: 4px;  height: 4px;  left: 5%;   top: 2px; animation-delay: 0s;    animation-duration: 2.1s; }
-.foam-2  { width: 6px;  height: 6px;  left: 12%;  top: 0px; animation-delay: 0.3s;  animation-duration: 3.2s; }
-.foam-3  { width: 3px;  height: 3px;  left: 22%;  top: 3px; animation-delay: 0.7s;  animation-duration: 2.6s; }
-.foam-4  { width: 5px;  height: 5px;  left: 31%;  top: 1px; animation-delay: 0.1s;  animation-duration: 2.9s; }
-.foam-5  { width: 4px;  height: 4px;  left: 42%;  top: 4px; animation-delay: 0.5s;  animation-duration: 2.3s; }
-.foam-6  { width: 7px;  height: 7px;  left: 51%;  top: 0px; animation-delay: 0.9s;  animation-duration: 3.5s; }
-.foam-7  { width: 3px;  height: 3px;  left: 63%;  top: 3px; animation-delay: 0.2s;  animation-duration: 2.0s; }
-.foam-8  { width: 5px;  height: 5px;  left: 72%;  top: 1px; animation-delay: 0.6s;  animation-duration: 2.8s; }
-.foam-9  { width: 4px;  height: 4px;  left: 83%;  top: 2px; animation-delay: 0.4s;  animation-duration: 3.1s; }
-.foam-10 { width: 6px;  height: 6px;  left: 92%;  top: 0px; animation-delay: 0.8s;  animation-duration: 2.4s; }
+.foam-1 {
+    width: 4px;
+    height: 4px;
+    left: 5%;
+    top: 2px;
+    animation-delay: 0s;
+    animation-duration: 2.1s;
+}
+
+.foam-2 {
+    width: 6px;
+    height: 6px;
+    left: 12%;
+    top: 0px;
+    animation-delay: 0.3s;
+    animation-duration: 3.2s;
+}
+
+.foam-3 {
+    width: 3px;
+    height: 3px;
+    left: 22%;
+    top: 3px;
+    animation-delay: 0.7s;
+    animation-duration: 2.6s;
+}
+
+.foam-4 {
+    width: 5px;
+    height: 5px;
+    left: 31%;
+    top: 1px;
+    animation-delay: 0.1s;
+    animation-duration: 2.9s;
+}
+
+.foam-5 {
+    width: 4px;
+    height: 4px;
+    left: 42%;
+    top: 4px;
+    animation-delay: 0.5s;
+    animation-duration: 2.3s;
+}
+
+.foam-6 {
+    width: 7px;
+    height: 7px;
+    left: 51%;
+    top: 0px;
+    animation-delay: 0.9s;
+    animation-duration: 3.5s;
+}
+
+.foam-7 {
+    width: 3px;
+    height: 3px;
+    left: 63%;
+    top: 3px;
+    animation-delay: 0.2s;
+    animation-duration: 2.0s;
+}
+
+.foam-8 {
+    width: 5px;
+    height: 5px;
+    left: 72%;
+    top: 1px;
+    animation-delay: 0.6s;
+    animation-duration: 2.8s;
+}
+
+.foam-9 {
+    width: 4px;
+    height: 4px;
+    left: 83%;
+    top: 2px;
+    animation-delay: 0.4s;
+    animation-duration: 3.1s;
+}
+
+.foam-10 {
+    width: 6px;
+    height: 6px;
+    left: 92%;
+    top: 0px;
+    animation-delay: 0.8s;
+    animation-duration: 2.4s;
+}
 
 @keyframes foamFloat {
-  0%   { transform: translateY(0px); }
-  100% { transform: translateY(-8px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-8px);
+    }
 }
 
 /* ── Ocean interior ── */
 
 .ocean-interior {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    #061828 0%,
-    #040C18 20%,
-    #020810 50%,
-    #010408 100%
-  );
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            #061828 0%,
+            #040C18 20%,
+            #020810 50%,
+            #010408 100%);
+    pointer-events: none;
 }
 
 /* ══ SCENE 7: THE MANIFESTO ══ */
 
 #scene-manifesto {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  background: #07070F;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8vh 0 6vh;
-  overflow: hidden;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: #07070F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8vh 0 6vh;
+    overflow: hidden;
 }
 
 /* ── Section marker ── */
 
 .manifesto-marker {
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  opacity: 0;
-  will-change: opacity;
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    will-change: opacity;
 }
 
 .marker-num {
-  font-family: 'Courier New', monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  color: #C8861A;
-  text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #C8861A;
+    text-transform: uppercase;
 }
 
 .marker-rule {
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: #2A1A10;
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: #2A1A10;
 }
 
 .marker-title {
-  font-family: 'Courier New', monospace;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  color: #3A2A20;
-  text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: #3A2A20;
+    text-transform: uppercase;
 }
 
 /* ── Lines column ── */
 
 .manifesto-lines {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: min(720px, 88vw);
-  gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min(720px, 88vw);
+    gap: 0;
 }
 
 /* ── Line wrap — the mask ── */
 
 .m-line-wrap {
-  overflow: hidden;
-  line-height: 1.15;
-  margin-bottom: 0.15em;
+    overflow: hidden;
+    line-height: 1.15;
+    margin-bottom: 0.15em;
 }
 
 .m-line-9 {
-  margin-top: 0.6em;
-  margin-bottom: 0.1em;
+    margin-top: 0.6em;
+    margin-bottom: 0.1em;
 }
+
 .m-line-10 {
-  margin-top: 0.2em;
+    margin-top: 0.2em;
 }
 
 .m-line {
-  display: block;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  transform: translateY(105%);
-  will-change: transform;
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    transform: translateY(105%);
+    will-change: transform;
 }
 
 /* ── Text size/color variants ── */
 
 .m-body-dim {
-  font-size: clamp(16px, 2.2vw, 22px);
-  color: #8A7870;
-  letter-spacing: -0.005em;
-  line-height: 1.4;
+    font-size: clamp(16px, 2.2vw, 22px);
+    color: #8A7870;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
 }
 
 .m-body-mid {
-  font-size: clamp(18px, 2.6vw, 26px);
-  color: #C8C0B0;
-  letter-spacing: -0.01em;
-  line-height: 1.35;
+    font-size: clamp(18px, 2.6vw, 26px);
+    color: #C8C0B0;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
 }
 
 .m-statement {
-  font-size: clamp(22px, 3.4vw, 38px);
-  color: #EDE8DC;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+    font-size: clamp(22px, 3.4vw, 38px);
+    color: #EDE8DC;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
 }
 
 .m-italic {
-  font-style: italic;
+    font-style: italic;
 }
 
 /* ── The pivot line — Go higher. ── */
 
 .m-go-higher-wrap {
-  width: 100%;
+    width: 100%;
 }
 
 .m-go-higher {
-  font-size: clamp(64px, 12vw, 140px);
-  color: #CC1818;
-  letter-spacing: -0.035em;
-  line-height: 0.95;
-  font-weight: 400;
-  text-shadow:
-    0 0 60px rgba(204, 24, 24, 0.25),
-    0 0 120px rgba(204, 24, 24, 0.1);
+    font-size: clamp(64px, 12vw, 140px);
+    color: #CC1818;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    font-weight: 400;
+    text-shadow:
+        0 0 60px rgba(204, 24, 24, 0.25),
+        0 0 120px rgba(204, 24, 24, 0.1);
 }
 
 /* ── Credit ── */
 
 .manifesto-credit {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  will-change: opacity;
-  white-space: nowrap;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    will-change: opacity;
+    white-space: nowrap;
 }
 
 .manifesto-credit span {
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: #1E1218;
-  text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: #1E1218;
+    text-transform: uppercase;
 }
 
 /* ══ SCENE 8: THE CLOSE ══ */
 
 #scene-close {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow: hidden;
-  background: #0C1018;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    background: #0C1018;
 }
 
 /* ── Atmospheric background layers ── */
 
 .close-atmosphere {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .close-atm-base {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    160deg,
-    #1E2A38 0%,
-    #12181F 40%,
-    #0C1018 75%,
-    #080C12 100%
-  );
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg,
+            #1E2A38 0%,
+            #12181F 40%,
+            #0C1018 75%,
+            #080C12 100%);
 }
 
 .close-atm-texture-1 {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(30, 50, 80, 0.4) 0%,
-    transparent 70%
-  );
-  filter: blur(60px);
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse at center,
+            rgba(30, 50, 80, 0.4) 0%,
+            transparent 70%);
+    filter: blur(60px);
 }
 
 .close-atm-texture-2 {
-  position: absolute;
-  top: 20%;
-  right: -15%;
-  width: 70%;
-  height: 60%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(20, 35, 60, 0.35) 0%,
-    transparent 70%
-  );
-  filter: blur(80px);
+    position: absolute;
+    top: 20%;
+    right: -15%;
+    width: 70%;
+    height: 60%;
+    background: radial-gradient(ellipse at center,
+            rgba(20, 35, 60, 0.35) 0%,
+            transparent 70%);
+    filter: blur(80px);
 }
 
 .close-atm-texture-3 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(
-    to top,
-    rgba(8, 10, 16, 0.9) 0%,
-    transparent 100%
-  );
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top,
+            rgba(8, 10, 16, 0.9) 0%,
+            transparent 100%);
 }
 
 /* ── Figure layer ── */
 
 .close-figure-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image: url('/assets/images/icarus-close.jpg');
-  background-size: cover;
-  background-position: center top;
-  filter: 
-    grayscale(100%) 
-    contrast(140%) 
-    brightness(0.18)
-    saturate(0);
-  mix-blend-mode: luminosity;
-  opacity: 0.7;
-  pointer-events: none;
-  will-change: opacity;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('../assets/images/icarus-close.jpg');
+    background-size: cover;
+    background-position: center top;
+    filter:
+        grayscale(100%) contrast(140%) brightness(0.18) saturate(0);
+    mix-blend-mode: luminosity;
+    opacity: 0.7;
+    pointer-events: none;
+    will-change: opacity;
 }
 
 /* ── Fragment dots — scattered feathers upper-right ── */
 
 .close-fragments {
-  position: absolute;
-  top: 8%;
-  right: 6%;
-  width: 120px;
-  height: 160px;
-  z-index: 2;
-  pointer-events: none;
+    position: absolute;
+    top: 8%;
+    right: 6%;
+    width: 120px;
+    height: 160px;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .fragment {
-  position: absolute;
-  border-radius: 50% 0 50% 0;
-  background: rgba(140, 160, 190, 0.15);
-  opacity: 0;
-  will-change: transform, opacity;
+    position: absolute;
+    border-radius: 50% 0 50% 0;
+    background: rgba(140, 160, 190, 0.15);
+    opacity: 0;
+    will-change: transform, opacity;
 }
 
-.fragment-1 { width: 4px;  height: 10px; top: 10%;  left: 60%; transform: rotate(25deg);  }
-.fragment-2 { width: 3px;  height: 8px;  top: 25%;  left: 80%; transform: rotate(-15deg); }
-.fragment-3 { width: 5px;  height: 12px; top: 40%;  left: 40%; transform: rotate(40deg);  }
-.fragment-4 { width: 3px;  height: 7px;  top: 55%;  left: 90%; transform: rotate(-30deg); }
-.fragment-5 { width: 4px;  height: 9px;  top: 70%;  left: 65%; transform: rotate(20deg);  }
+.fragment-1 {
+    width: 4px;
+    height: 10px;
+    top: 10%;
+    left: 60%;
+    transform: rotate(25deg);
+}
+
+.fragment-2 {
+    width: 3px;
+    height: 8px;
+    top: 25%;
+    left: 80%;
+    transform: rotate(-15deg);
+}
+
+.fragment-3 {
+    width: 5px;
+    height: 12px;
+    top: 40%;
+    left: 40%;
+    transform: rotate(40deg);
+}
+
+.fragment-4 {
+    width: 3px;
+    height: 7px;
+    top: 55%;
+    left: 90%;
+    transform: rotate(-30deg);
+}
+
+.fragment-5 {
+    width: 4px;
+    height: 9px;
+    top: 70%;
+    left: 65%;
+    transform: rotate(20deg);
+}
 
 /* ── Close marker — top left script ── */
 
 .close-marker {
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  z-index: 4;
-  opacity: 0;
-  will-change: opacity;
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    z-index: 4;
+    opacity: 0;
+    will-change: opacity;
 }
 
 .close-marker-text {
-  display: block;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: clamp(32px, 5vw, 52px);
-  color: #EDE8DC;
-  letter-spacing: -0.01em;
-  line-height: 1;
-  margin-bottom: 0.4rem;
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #EDE8DC;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
 }
 
 .close-marker-sub {
-  display: block;
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: #2A3A48;
-  text-transform: uppercase;
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: #2A3A48;
+    text-transform: uppercase;
 }
 
 /* ── Poem block ── */
 
 .close-poem {
-  position: relative;
-  z-index: 4;
-  padding: 0 0 5vh 6vw;
-  max-width: min(520px, 80vw);
-  opacity: 0;
-  will-change: opacity;
+    position: relative;
+    z-index: 4;
+    padding: 0 0 5vh 6vw;
+    max-width: min(520px, 80vw);
+    opacity: 0;
+    will-change: opacity;
 }
 
 .poem-stanza {
-  margin-bottom: 1.8rem;
+    margin-bottom: 1.8rem;
 }
 
 .poem-stanza:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .poem-line {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(15px, 2vw, 20px);
-  color: #C8D0D8;
-  line-height: 1.65;
-  letter-spacing: 0.005em;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(12px);
-  will-change: transform, opacity;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(15px, 2vw, 20px);
+    color: #C8D0D8;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: transform, opacity;
 }
 
 .poem-opening {
-  font-size: clamp(18px, 2.6vw, 26px);
-  color: #EDE8DC;
-  font-style: italic;
-  letter-spacing: -0.005em;
+    font-size: clamp(18px, 2.6vw, 26px);
+    color: #EDE8DC;
+    font-style: italic;
+    letter-spacing: -0.005em;
 }
 
 .poem-emphasis {
-  font-style: italic;
-  color: #EDE8DC;
+    font-style: italic;
+    color: #EDE8DC;
 }
 
 .poem-body {
-  color: #8A9AAA;
-  font-size: clamp(14px, 1.8vw, 18px);
+    color: #8A9AAA;
+    font-size: clamp(14px, 1.8vw, 18px);
 }
 
 .poem-final {
-  font-style: italic;
-  color: #EDE8DC;
-  font-size: clamp(16px, 2.2vw, 22px);
+    font-style: italic;
+    color: #EDE8DC;
+    font-size: clamp(16px, 2.2vw, 22px);
 }
 
 /* ── Footer ── */
 
 .close-footer {
-  position: relative;
-  z-index: 4;
-  padding: 0 6vw 2.5rem;
-  opacity: 0;
-  will-change: opacity;
+    position: relative;
+    z-index: 4;
+    padding: 0 6vw 2.5rem;
+    opacity: 0;
+    will-change: opacity;
 }
 
 .footer-line {
-  width: 100%;
-  height: 1px;
-  background: rgba(30, 42, 56, 0.8);
-  margin-bottom: 1.2rem;
-  transform: scaleX(0);
-  transform-origin: left center;
-  will-change: transform;
+    width: 100%;
+    height: 1px;
+    background: rgba(30, 42, 56, 0.8);
+    margin-bottom: 1.2rem;
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
 }
 
 .footer-content {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .footer-title {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 11px;
-  color: #2A3A48;
-  letter-spacing: 0.05em;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #2A3A48;
+    letter-spacing: 0.05em;
 }
 
 .footer-divider {
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  color: #1A2530;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: #1A2530;
 }
 
 .footer-credit {
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  color: #2A3A48;
-  text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: #2A3A48;
+    text-transform: uppercase;
 }
 
 .footer-year {
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: #1A2530;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #1A2530;
 }
 
 .footer-note {
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: #1A2530;
-  font-style: italic;
-  text-transform: lowercase;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #1A2530;
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+/* ══ ELITE ADDITIONS ══════════════════════════════════ */
+
+/* ── Custom cursor ── */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(237, 232, 220, 0.75);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    will-change: transform;
+    transition: width 0.25s ease, height 0.25s ease;
+}
+
+/* ── Scroll progress bar — left edge ── */
+.scroll-progress {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100vh;
+    z-index: 9996;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.scroll-progress-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            #CC1818 0%,
+            #C8861A 60%,
+            #EDE8DC 100%);
+    transform: scaleY(0);
+    transform-origin: top center;
+    will-change: transform;
+}
+
+/* ── Film grain overlay ── */
+.grain-svg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0.038;
+    mix-blend-mode: overlay;
+}
+
+/* ── Preloader refinement ── */
+.pre-counter {
+    letter-spacing: 0.24em;
 }
