@@ -88,3 +88,8 @@ export function initIcarusCanvas() {
 
     animate();
 }
+
+export function setIcarusCompositionShift(t) {
+    if (!mesh) return;
+    mesh.position.x = t * 2.2;
+}
